@@ -18,7 +18,8 @@ class EmployeesController < ApplicationController
     def create
         @employee = Employee.new(employee_params)
         @employees = Employee.all
-        if @employee.save            
+        if @employee.save
+            SLACK_NOTIFIER.ping ("Novo membro do time: #{@employee.nome}")
             redirect_to @employee
         else
             render 'new'
