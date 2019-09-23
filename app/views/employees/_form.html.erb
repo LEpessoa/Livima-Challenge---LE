@@ -1,0 +1,40 @@
+<%= form_with scope: :employee, url: employees_path, local: true do |form| %>
+
+    <% if @employee.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@employee.errors.count, "error") %> prohibited
+                this employee from being saved:
+            </h2>
+            <ul>
+                <% @employee.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= form.label :nome %><br>
+      <%= form.text_field :nome %><br>
+    </p>
+
+    <p>
+      <%= form.label :email %><br>
+      <%= form.text_field :email %><br>
+    </p>
+
+    <p>
+      <%= form.label :cargo %><br>
+      <%= form.text_field :cargo %><br>
+    </p>
+
+    <p>
+      <%= form.label :salário %><br>
+      <%= form.text_field :salário %><br>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>

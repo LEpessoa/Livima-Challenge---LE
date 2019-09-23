@@ -1,0 +1,29 @@
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    &nbsp;
+<%= link_to 'Novo Funcionário', new_employee_path %>
+
+<table class="pure-table" border=1>
+    <tr>
+        <th><%=h "#"%></th>
+        <th><%=h "Nome"%></th>
+        <th><%=h "Email"%></th>
+        <th><%=h "Cargo"%></th>
+        <th><%=h "Salário"%></th>
+    </tr>
+
+    <% @employees.each do |employee| %>
+        <tr>
+            <td><%= employee.id %></td>
+            <td><%= employee.nome %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.cargo %></td>
+            <td><%= employee.salário %></td>            
+            <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
+            <td><%= link_to 'Remover', employee_path(employee),
+              method: :delete,
+              data: { confirm: 'Tem certeza disso?' } %></td>
+        </tr>        
+    <% end %>
+
+</table>
+
