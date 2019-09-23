@@ -1,16 +1,14 @@
-<h2>Bem vindo ao Personnel Manager</h2>
-
 <% if current_user %>
-
+<h2>Bem vindo ao Personnel Manager</h2>
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 &nbsp;
 <%= link_to 'Pessoal Cadastrado', controller: 'employees' %>
 
 <% else %>
-
-<%= link_to 'Sign up', new_user_registration_path %>
+<h2>Faça login para começar</h2>
+<%= #link_to 'Sign up', new_user_registration_path %>
 &nbsp;
-<%= link_to 'Sign in', new_user_session_path %>
+<%= link_to 'LOGIN', new_user_session_path %>
 </br>
 
 
